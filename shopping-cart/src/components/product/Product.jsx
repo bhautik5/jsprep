@@ -33,7 +33,7 @@ const Product = ( {prod} ) => {
             {title}
         </div>
         <div className="prod-price">
-            {price}
+            ₹{price}
         </div>
         
         {addedInCart?

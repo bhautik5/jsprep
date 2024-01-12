@@ -64,7 +64,7 @@ const Cart = () => {
                                     onClick={() => changeQty(prod.id, 'inc')}
                                     >+</button>
                                 </div>
-                                <div className="cart-prod-price cart-width-1">{prod.price}</div>
+                                <div className="cart-prod-price cart-width-1">₹{prod.price}</div>
                                 <div className="cart-width-1" ><FontAwesomeIcon className="cart-delete" icon={faTrash} onClick={()=>removeItem(prod.id)}/></div>
                             </div>
                         })}
@@ -72,11 +72,11 @@ const Cart = () => {
                     <div className="cart-20">
                         <div className="cart-subtotal cart-table">
                             <span>Subtotal</span>
-                            <span> RS. {cartTotal}</span>
+                            <span> ₹{cartTotal}</span>
                         </div>
                         <div className="cart-total cart-table">
                             <span>Total</span>
-                            <span> RS. {cartTotal}</span>
+                            <span>  ₹{cartTotal}</span>
                         </div>
                         <button className="btn">Proceed</button>
                     </div>
