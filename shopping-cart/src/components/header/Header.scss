@@ -1,0 +1,34 @@
+.header {
+    background-color: #313131;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 45px;
+}
+
+.logo {
+    font-size: 30px;
+}
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-cart {
+    font-size: 18px;
+    position: relative;
+
+    span {
+        padding: 3px 5px;
+        background-color: #159d15;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+    }
+}
