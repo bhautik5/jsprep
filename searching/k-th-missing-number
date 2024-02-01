@@ -1,0 +1,67 @@
+// Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+// Return the kth positive integer that is missing from this array.
+
+// Example 1:
+
+// Input: arr = [2,3,4,7,11], k = 5
+// Output: 9
+// Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+// Example 2:
+
+// Input: arr = [1,2,3,4], k = 2
+// Output: 6
+// Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing positive integer is 6.
+ 
+
+// Constraints:
+
+// 1 <= arr.length <= 1000
+// 1 <= arr[i] <= 1000
+// 1 <= k <= 1000
+// arr[i] < arr[j] for 1 <= i < j <= arr.length
+ 
+
+// Follow up:
+
+// Could you solve this problem in less than O(n) complexity?
+
+// Binary search approach - O(logn)
+function findKthPositive(arr, k) {
+    let left = 0;
+    let right = arr.length - 1;
+    while ( left <= right ){
+        let mid = Math.floor((left + right )/2);
+        if (noOfMissingPositiveNumber(arr[mid], mid+1) < k) {
+            left = mid + 1
+        } else {
+            right = mid - 1;
+        }
+    }
+    return arr[left-1] + (k - noOfMissingPositiveNumber(arr[left-1], left))
+    // After evaluating above line it would be left + k
+    // return left + k;
+}
+
+function noOfMissingPositiveNumber(actual, numberShouldBe) {
+    return actual - numberShouldBe;
+}
+
+console.log(findKthPositive([2,3,4,7,11],5))
+// console.log(findKthPositive([1,2,3,4],2))
+
+// Normal approach O(n)
+function findKthPositive2(arr, k) {
+  let missed = 0;
+  let index = 0;
+  let num = 1;
+  let length = arr.length;
+  while (missed < k) {
+    if (index >= length || arr[index] !== num) {
+      missed++;
+    } else ++index;
+
+    ++num;
+  }
+  return num - 1;
+};
+console.log(findKthPositive2([2,3,4,7,11],5))
